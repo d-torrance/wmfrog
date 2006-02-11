@@ -1,0 +1,19 @@
+Source: wmfrog
+Section: x11
+Priority: optional
+Maintainer: Jari Aalto <jari.aalto@cante.net>
+Build-Depends: debhelper (>= 4.0.0), libxpm-dev
+Standards-Version: 3.6.2
+
+Package: wmfrog
+Architecture: any
+Depends: wget, ${shlibs:Depends}, ${misc:Depends}
+Description: A dockapp for showing weather in graphical way
+ A dockapp for wheather reports. Includes clouds (clear, few,
+ scattered, broken, overcast ...); Precipitations (drizzle, rain,
+ snow, ice christals: light/moderate or heavy); Special weather
+ (Blowing wind / Freezing / Thunderstorm, funnel cloud...); Humidity
+ perentage; Wind speed (average & gust); Wind Direction; Temperature
+ (Celcius or Fareinheit); Station name can be configured and weather
+ report time is displayed.
+
