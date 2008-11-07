@@ -12,7 +12,6 @@ MANSECT = 1x
 
 include /usr/share/dpatch/dpatch.make
 include debian/debian-vars.mk
-include debian/pod2man.mk
 
 man:
 	# convert *.pod to manual page
