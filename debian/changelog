@@ -1,3 +1,9 @@
+wmfrog (0.2.0-1) unstable; urgency=low
+
+  * New Upstream Version
+
+ -- Jari Aalto <jari.aalto@cante.net>  Fri, 07 Nov 2008 11:08:56 +0200
+
 wmfrog (0.1.6-1) unstable; urgency=low
 
   * Initial release (RFP/ITP; Closes: #504786).

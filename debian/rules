@@ -7,7 +7,17 @@
 MAKEDIR = Src
 MAKEOPT = -C $(MAKEDIR)
 
+PACKAGE = wmfrog
+MANSECT = 1x
+
 include /usr/share/dpatch/dpatch.make
+include debian/debian-vars.mk
+include debian/pod2man.mk
+
+man:
+	# convert *.pod to manual page
+	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) \
+	MANSECT=$(MANSECT) makeman
 
 configure: configure-stamp
 
@@ -18,11 +28,11 @@ configure-stamp:
 
 build: build-stamp
 
-build-stamp: configure-stamp patch
+build-stamp: configure-stamp patch man
 	dh_testdir
 
 	# Commands to compile the package.
-	$(MAKE) $(MAKEOPT)
+	$(MAKE) $(MAKE_FLAGS) $(MAKEOPT)
 
 	touch build-stamp
 
@@ -33,6 +43,8 @@ clean: unpatch
 
 	# Commands to clean up after the build process.
 	[ ! Src/Makefile ] || $(MAKE) $(MAKEOPT) clean
+
+	rm -f debian/*.$(MANSECT)
 
 	dh_clean
 
@@ -66,7 +78,7 @@ binary-arch: build install
 #       dh_installinit
 #       dh_installcron
 #       dh_installinfo
-	dh_installman Src/wmfrog.1
+	dh_installman debian/*.$(MANSECT)
 	dh_link
 	dh_strip
 	dh_compress
@@ -81,4 +93,4 @@ binary-arch: build install
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
+.PHONY: build clean binary-indep binary-arch binary install configure man
