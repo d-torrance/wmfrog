@@ -1,3 +1,13 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## /tmp/manpage-hyphen-fix.patch.dpatch by  <jari.aalto@cante.net>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Src/wmfrog.1: hyphen fix
+
+@DPATCH@
+
+diff --git a/Src/wmfrog.1 b/Src/wmfrog.1
+index 36dc740..c0173e2 100644
 --- a/Src/wmfrog.1
 +++ b/Src/wmfrog.1
 @@ -3,7 +3,7 @@
