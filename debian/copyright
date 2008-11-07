@@ -1,7 +1,7 @@
 This package was debianized by Jari Aalto <jari.aalto@cante.net> on
 2008-11-02 15:16:55+02 Sun.
 
-It was downloaded from
+It was downloaded from:
 
     http://www.colar.net/wmapps
 
@@ -10,9 +10,14 @@ It was downloaded from
     https://sourceforge.net/projects/wmfrog
     http://dockapps.org/file.php/id/92
 
-Copyright Holder:
+Upstream Author:
 
     Thibaut Colar <tcolar@users.sourceforge.net>, <tcolar@colar.net>
+
+Copyright:
+
+    Copyright (C) 2002-2007 Thibaut Colar
+    Copyright (C) Martijn Pieterse - Src/xutils.c
 
 License:
 
