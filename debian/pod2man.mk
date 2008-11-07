@@ -26,13 +26,15 @@
 #       install: build $(MANPAGE)
 
 ifneq (,)
-This makefile requires GNU Make.
+    This makefile requires GNU Make.
 endif
 
-# These variables *must* be set when calling
-PACKAGE		= package
-PODCENTER	= $$(date "+%Y-%m-%d")
-MANSECT		= 1
+# This variable *must* be set when calling
+PACKAGE		?= package
+
+# Optional variables to set
+MANSECT		?= 1
+PODCENTER	?= $$(date "+%Y-%m-%d")
 
 # Directories
 MANSRC		=
