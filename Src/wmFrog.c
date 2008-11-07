@@ -3,7 +3,7 @@
    This is a dockapp wich shows you the weather at a specific location
    from it's METAR code.
    If this program blew up your computer it isn't my fault :-)
-   This slightly use some code from the wmWeather application.
+   This use a bit of code borrowed from the wmWeather application.
  */
 
 
@@ -15,9 +15,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <string.h>
 #include <ctype.h>
 #include <time.h>
+#include <pwd.h>
 #include <X11/X.h>
 #include <X11/xpm.h>
 #include "xutils.h"
@@ -37,13 +37,13 @@
 #define MAX_WIND 50
 #define TIME_OFFSET 0
 #define METRIC 0
-#define TMP "/tmp/"
 
 void  ParseCMDLine(int argc, char *argv[]);
 void  ButtonPressEvent(XButtonEvent *);
 void  KeyPressEvent(XKeyEvent *);
 char *StringToUpper(char *);
 char *mystrsep(char **stringp, char *delim);
+char *GetTempDir(char *suffix);
 
 char 		StationID[10];
 char		Label[20];
@@ -53,12 +53,12 @@ int		ForceUpdate = 1;
 int		ForceDownload = 1;
 int             maxWind=MAX_WIND;
 int             timeOffset=TIME_OFFSET;
-char            tmp[256]=TMP;
 long		UpdateDelay;
 int             GotFirstClick1, GotDoubleClick1;
 int             GotFirstClick2, GotDoubleClick2;
 int             GotFirstClick3, GotDoubleClick3;
 int             DblClkDelay;
+char* folder;
 
 /*  
  *   main  
@@ -93,7 +93,10 @@ FILE		*fp;
   int hour=0;
   int dir=-1;
   int q;
-  
+
+	folder=GetTempDir(".wmapps");
+	//fprintf(stderr,"User dir: %s\n",folder);
+
     /*
      *  Parse any command line arguments.
      */
@@ -210,7 +213,8 @@ FILE		*fp;
 	    
 	    dt2 = 0;
 
-	    sprintf(FileName, "/tmp/%s", StationID);
+	    sprintf(FileName, "%s/%s", folder, StationID);
+		fprintf(stderr,"%s\n\n",FileName);
     	    if ((fp = fopen(FileName, "r")) != NULL){
 	      fscanf(fp, "Hour:%d", &hour);
 	      fgets(Line, 512, fp);//h
@@ -567,7 +571,7 @@ UpToDate = 0;
 	    /*
 	     *  Execute Perl script to grab the Latest METAR Report
 	     */
-	    sprintf(command, "/usr/lib/wmfrog/weather.pl %s %s &", StationID, tmp);
+	    sprintf(command, "/usr/lib/wmfrog/weather.pl %s %s &", StationID, folder);
 	    //printf("Retrieveing data\n");
 	    system(command);
 	    ForceDownload = 0;
@@ -639,7 +643,7 @@ void ParseCMDLine(int argc, char *argv[]) {
 		print_usage();
 		exit(-1);
 	    }
-            strcpy(tmp, argv[++i]);
+            strcpy(folder, argv[++i]);
 
  
         } else if ((!strcmp(argv[i], "-station"))||(!strcmp(argv[i], "-s"))){
@@ -712,13 +716,14 @@ void ParseCMDLine(int argc, char *argv[]) {
     printf("\t-w\t\t\t\tSet the maximum wind in KNOTS (for percentage of max / scaling.)\n");
     printf("\t\t\t\t\tdefault is %d minutes). (Times are approximate.)\n\n", MAX_WIND);
     printf("\t-o\t\t\t\tTime offset of location from UTC (7 for calif in summer) \n\n");
-    printf("\t-tmp\t\t\t\tSet the temporary folder (default is: %s) \n\n",tmp);
+    printf("\t-tmp\t\t\t\tSet the temporary folder (default is: %s) \n\n",folder);
     printf("\t-l\t\t\t\tSet a label to replace the station ID \n\n");
 
     printf("\n\nTo find out more about the METAR/TAF system, look at:\n");
     printf("	 http://www.nws.noaa.gov/oso/oso1/oso12/metar.htm \n\n");
     printf("To find your city Metar code go to  NOAA's ""Meteorological Station Information\nLookup"" page at:\n\n");
     printf("	 http://www.nws.noaa.gov/oso/siteloc.shtml\n\n");
+    printf("\n Thibaut Colar http://www.colar.net/wmapps/\n\n");
 
 }
 
@@ -835,6 +840,18 @@ void KeyPressEvent(XKeyEvent *xev){
 
 }
 
+char *GetTempDir(char *suffix) 
+{
+	uid_t id;
+	struct passwd *userEntry;
+	char * userHome;
+	
+	id=getuid();
+	userEntry=getpwuid(id);
+	userHome=userEntry->pw_dir;
+	sprintf(userHome,"%s/%s",userHome,suffix);
+	return userHome;
+}
 
 char *StringToUpper(char *String) {
 
@@ -867,7 +884,3 @@ char *mystrsep(char **stringp, char *delim)
 
 
 }
-
-
-
-
