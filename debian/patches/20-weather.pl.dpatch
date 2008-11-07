@@ -1,0 +1,197 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## /tmp/weather.pl.patch.dpatch by  <jari.aalto@cante.net>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix Perl warnings, array subscript, test directory
+
+@DPATCH@
+
+diff --git a/Src/weather.pl b/Src/weather.pl
+index 27a4f88..247e02c 100755
+--- a/Src/weather.pl
++++ b/Src/weather.pl
+@@ -2,18 +2,15 @@
+ #Thibaut Colar: http://www.colar.net/ 
+ #2002/05
+ 
+-#The Weather data can be retrieved through http of ftp.
+-#Http is faster, however this might get broken if NOAA change their webpage layout
++#The Weather data can be retrived through http of ftp.
++#Http is faster, however this might get broken if NOAA change theyr webpage layout
+ #in wich case you should choose ftp.
+ $mode="http"; # html || ftp
+ 
+-
+ ########################################
+ # Start:
+ ########################################
+-($station,$tmpfolder)=@ARGV;
+-
+-mkdir($tmpfolder); 
++($station,$tmpfolder, $debug)=@ARGV;
+ 
+ $html="http://weather.noaa.gov/cgi-bin/mgetmetar.pl?cccc=${station}";
+ $ftp="ftp://weather.noaa.gov/data/observations/metar/stations/${station}.TXT";
+@@ -28,7 +25,7 @@ if($mode eq "ftp")
+ $line="";
+ $file="${tmpfolder}/${station}_dat";
+ open(DATA,"<$file");
+-$allGood=0;
++# $allGood=0;
+ if($mode eq "http")
+ {
+     while((! ($line=~m/START BODY OF TEXT HERE/)) && !eof(DATA))
+@@ -51,7 +48,7 @@ exit(0);
+ }
+ $line=<DATA>;
+ chomp $line;
+-($crap,$time)=split(/\ /,$line);
++(undef,$time)=split(/\ /,$line);
+ ($hour,$minute)=split(/:/,$time);
+ $line="";
+ if($mode eq "http")
+@@ -72,45 +69,45 @@ close DATA;
+ chomp $line;
+ @args=split(/\ /,$line);
+ 
+-if(debug)
++if ($debug)
+ {
+-	#print "@args\n";
++	print "@args\n";
+ }
+ 
+ $i=0;
+-$station=@args[$i];
++$station=$args[$i];
+ if(($station eq 'METAR') or ($station eq 'SPECI'))
+ {
+-	$station=@args[$i+1];
++	$station=$args[$i+1];
+ 	$i++;
+ }
+ $i++;
+ $i++;#time
+-$wind=@args[$i];
++$wind=$args[$i];
+ if($wind eq 'AUTO')
+ {
+-	$wind=@args[$i+1];
++	$wind=$args[$i+1];
+ 	$i++;
+ }
+ $i++;
+-$visibility=@args[$i];
++$visibility=$args[$i];
+ $i++;#Visibility
+ if( ! ($visibility=~m/SM/ || ($visibility eq "CAVOK")) )
+ {
+ 	#print "Visibility fraction\n";
+ 	$i++; # visibility with fractions, ignoring
+ }
+-$next=@args[$i];
++$next=$args[$i];
+ if($next=~m/FT/)
+ {
+ 	#print "Visibility feet\n";
+ 	$i++; # visibility in feet, ignoring
+ }
+ 
+-$tmp="";
++# $tmp="";
+ $weather="";
+ $clouds="";
+-while((! (@args[$i]=~/\//)) && ($i<@args))
++while((! ($args[$i]=~/\//)) && ($i<@args))
+ {
+ 
+     $intensity="";
+@@ -119,7 +116,7 @@ while((! (@args[$i]=~/\//)) && ($i<@args))
+     $obsc="";
+     $misc="";
+     $j=0;
+-    $curent=@args[$i];
++    $curent=$args[$i];
+     $wasCloud="no";
+ 
+     if($curent=~/^CAVOK/)
+@@ -130,7 +127,7 @@ while((! (@args[$i]=~/\//)) && ($i<@args))
+     if($curent=~/^VV/)
+     {
+ 	$clouds.="VV,".substr($curent,2,3).";";
+-	$wasNotCloud="yes";
++	# $wasNotCloud="yes";
+     }
+     if(($curent=~/^CLR/) or ($curent=~/^SCK/) or ($curent=~/^FEW/) or ($curent=~/^SCT/)  or ($curent=~/^BKN/)   or ($curent=~/^OVC/))
+        {
+@@ -183,7 +180,7 @@ if(($wasCloud ne "yes"))
+ }    
+     $i++;
+ }
+-($temp,$dew)=split(/\//,@args[$i]);
++($temp,$dew)=split(/\//,$args[$i]);
+ 
+ 
+ $dir=substr($wind,0,3);
+@@ -242,32 +239,37 @@ if($dew eq "")
+ }
+ 
+ #check for ok temperature
+-open(GREP, "grep Temp $tmpfolder/${station} | ");
+-$templine=<GREP>;
+-$templine=~m/^Temp:(.*)$/;
++
++if ( -d "$tmpfolder/$station" )
+ {
+-	$lattemp=$1;
+-	if($temp>-50 && $temp<150)
+-	{
+-		if($lasttemp>-50 && $lasttemp<150)
+-		{
+-			if($temp>-2 && $temp<2)
+-			{
+-				if($lasttemp>7 || $lasttemp<-7)
+-				{
+-					#probably invalid
+-					$station="";
+-				}
+-			}
+-		}
+-	}
+-	else
+-	{
+-	#invalid
+-	$station="";
+-	}
++    open(GREP, "grep Temp $tmpfolder/${station} | ");
++    $templine=<GREP>;
++
++    $templine=~m/^Temp:(.*)$/;
++    {
++	    # $lattemp=$1;
++	    if($temp>-50 && $temp<150)
++	    {
++		    if($lasttemp>-50 && $lasttemp<150)
++		    {
++			    if($temp>-2 && $temp<2)
++			    {
++				    if($lasttemp>7 || $lasttemp<-7)
++				    {
++					    #probably invalid
++					    $station="";
++				    }
++			    }
++		    }
++	    }
++	    else
++	    {
++	    #invalid
++	    $station="";
++	    }
++    }
++    close GREP;
+ }
+-close GREP;
+ 
+ #print "$$station\n";
+ if(length($station)==4)
