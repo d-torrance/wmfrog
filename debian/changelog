@@ -2,5 +2,4 @@ wmfrog (0.1.6-1) unstable; urgency=low
 
   * Initial release (RFP/ITP; Closes: #504786).
 
- -- Jari Aalto <jari.aalto@cante.net>  Fri, 07 Nov 2008 08:36:06 +0000
-
+ -- Jari Aalto <jari.aalto@cante.net>  Fri, 07 Nov 2008 08:49:10 +0000
