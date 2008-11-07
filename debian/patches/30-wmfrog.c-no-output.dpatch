@@ -1,0 +1,21 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## /tmp/wmfrog.c-no-output.patch.dpatch by  <jari.aalto@cante.net>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Src/wmFrog.c: (main): No output
+
+@DPATCH@
+
+diff --git a/Src/wmFrog.c b/Src/wmFrog.c
+index e2d82af..573dbf5 100644
+--- a/Src/wmFrog.c
++++ b/Src/wmFrog.c
+@@ -214,7 +214,7 @@ FILE		*fp;
+ 	    dt2 = 0;
+ 
+ 	    sprintf(FileName, "%s/%s", folder, StationID);
+-		fprintf(stderr,"%s\n\n",FileName);
++	    /* fprintf(stderr,"%s\n\n",FileName); */
+     	    if ((fp = fopen(FileName, "r")) != NULL){
+ 	      fscanf(fp, "Hour:%d", &hour);
+ 	      fgets(Line, 512, fp);//h
