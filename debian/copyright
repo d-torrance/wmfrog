@@ -1,27 +1,39 @@
 This package was debianized by Jari Aalto <jari.aalto@cante.net> on
-Sat, 11 Feb 2006 15:16:55 +0200.
+2008-11-02 15:16:55+02 Sun.
 
-It was downloaded from http://www.colar.net/wmapps/
-See also http://dockapps.org/file.php/id/92
+It was downloaded from
 
-Copyright Holder: <tcolar@qarbon.com>
+    http://www.colar.net/wmapps
+
+    See also:
+    https://sourceforge.net/projects/wmfrog
+    http://freshmeat.net/projects/wmfrog
+    http://dockapps.org/file.php/id/92
+
+Copyright Holder:
+
+    <tcolar@qarbon.com>
 
 License:
 
-   This package is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2 of the License, or
-   (at your option) any later version.
+    This package is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
 
-   This package is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-   You should have received a copy of the GNU General Public License
-   along with this package; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+The Debian packaging is licensed under the GPL v2 (or at your option,
+any later version), see below, and is:
+
+    Copyright (C) 2008 Jari Aalto <jari.aalto@cante.net>
 
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
-

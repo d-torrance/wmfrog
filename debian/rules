@@ -1,67 +1,54 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
-# Sample debian/rules that uses debhelper.
-# This file was originally written by Joey Hess and Craig Small.
-# As a special exception, when this file is copied by dh-make into a
-# dh-make output file, you may use that output file without restriction.
-# This special exception was added by Craig Small in version 0.37 of dh-make.
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+MAKEDIR = Src
+MAKEOPT = -C $(MAKEDIR)
 
-
-
-CFLAGS = -Wall -g
-
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
-else
-	CFLAGS += -O2
-endif
+include /usr/share/dpatch/dpatch.make
 
 configure: configure-stamp
+
 configure-stamp:
 	dh_testdir
-	# Add here commands to configure the package.
-
+	# Commands to configure the package.
 	touch configure-stamp
-
 
 build: build-stamp
 
-build-stamp: configure-stamp 
+build-stamp: configure-stamp patch
 	dh_testdir
 
-	# Add here commands to compile the package.
-	$(MAKE) -C Src
-	#docbook-to-man debian/wmfrog.sgml > wmfrog.1
+	# Commands to compile the package.
+	$(MAKE) $(MAKEOPT)
 
 	touch build-stamp
 
-clean:
+clean: unpatch
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp configure-stamp
 
-	# Add here commands to clean up after the build process.
-	-$(MAKE) -C Src clean
+	# Commands to clean up after the build process.
+	[ ! Src/Makefile ] || $(MAKE) $(MAKEOPT) clean
 
-	dh_clean 
+	dh_clean
 
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k 
+	dh_clean -k
 	dh_installdirs
 
 	# Add here commands to install the package into debian/wmfrog.
-	$(MAKE) -C Src install DESTDIR=$(CURDIR)/debian/wmfrog
+	$(MAKE) $(MAKEOPT) install DESTDIR=$(CURDIR)/debian/wmfrog
 
 
 # Build architecture-independent files here.
 binary-indep: build install
-# We have nothing to do by default.
+	# We have nothing to do.
 
 # Build architecture-dependent files here.
 binary-arch: build install
@@ -70,24 +57,24 @@ binary-arch: build install
 	dh_installchangelogs CHANGES
 	dh_installdocs
 	dh_installexamples
-#	dh_install
-#	dh_installmenu
-#	dh_installdebconf	
-#	dh_installlogrotate
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installmime
-#	dh_installinit
-#	dh_installcron
-#	dh_installinfo
+#       dh_install
+#       dh_installmenu
+#       dh_installdebconf
+#       dh_installlogrotate
+#       dh_installemacsen
+#       dh_installpam
+#       dh_installmime
+#       dh_installinit
+#       dh_installcron
+#       dh_installinfo
 	dh_installman Src/wmfrog.1
 	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
-#	dh_perl
-#	dh_python
-#	dh_makeshlibs
+#       dh_perl
+#       dh_python
+#       dh_makeshlibs
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
