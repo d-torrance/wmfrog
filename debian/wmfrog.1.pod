@@ -58,11 +58,6 @@ Default is C</tmp>.
 Set displayed text to 4 character (max) label to replace the METAR
 station id.
 
-=item B<>
-
-
-=item B<>
-
 =back
 
 =head1 DESCRIPTION
@@ -89,9 +84,13 @@ None.
 
 =head1 FILES
 
+=over 4
+
 =item /tmp/<station-id>/
 
 Stored data files. The directory can be changed with option B<-tmp>
+
+=back
 
 =head1 SEE ALSO
 
