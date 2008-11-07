@@ -2,8 +2,8 @@
 #Thibaut Colar: http://www.colar.net/ 
 #2002/05
 
-#The Weather data can be retrived through http of ftp.
-#Http is faster, however this might get broken if NOAA change theyr webpage layout
+#The Weather data can be retrieved through http of ftp.
+#Http is faster, however this might get broken if NOAA change their webpage layout
 #in wich case you should choose ftp.
 $mode="http"; # html || ftp
 
@@ -12,6 +12,8 @@ $mode="http"; # html || ftp
 # Start:
 ########################################
 ($station,$tmpfolder)=@ARGV;
+
+mkdir($tmpfolder); 
 
 $html="http://weather.noaa.gov/cgi-bin/mgetmetar.pl?cccc=${station}";
 $ftp="ftp://weather.noaa.gov/data/observations/metar/stations/${station}.TXT";
