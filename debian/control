@@ -11,7 +11,7 @@ Homepage: http://freshmeat.net/projects/wmfrog
 Package: wmfrog
 Architecture: any
 Depends: wget, libxext6, ${shlibs:Depends}, ${misc:Depends}
-Description: a dockapp for showing weather in graphical way
+Description: dockapp for showing weather in graphical way
  A dockapp for wheather reports. Includes clouds (clear, few,
  scattered, broken, overcast ...); Precipitations (drizzle, rain,
  snow, ice christals: light/moderate or heavy); Special weather
