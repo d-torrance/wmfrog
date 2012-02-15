@@ -3,11 +3,13 @@ Subject: Src/wmFrog.c: (main): No output
 
 @DPATCH@
 
-diff --git a/Src/wmFrog.c b/Src/wmFrog.c
-index e2d82af..573dbf5 100644
+---
+ Src/wmFrog.c |    8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
 --- a/Src/wmFrog.c
 +++ b/Src/wmFrog.c
-@@ -214,7 +214,7 @@ FILE		*fp;
+@@ -214,7 +214,7 @@
  	    dt2 = 0;
  
  	    sprintf(FileName, "%s/%s", folder, StationID);
@@ -16,3 +18,30 @@ index e2d82af..573dbf5 100644
      	    if ((fp = fopen(FileName, "r")) != NULL){
  	      fscanf(fp, "Hour:%d", &hour);
  	      fgets(Line, 512, fp);//h
+@@ -615,7 +615,7 @@
+ 
+ 	    } else if(sscanf(argv[i+1], "%d", &maxWind) != 1) {
+ 
+-		fprintf(stderr,"Dont understand the max wind value have entered (%s).\n", argv[i+1]);
++		fprintf(stderr,"Don't understand the max wind value have entered (%s).\n", argv[i+1]);
+ 		print_usage();
+ 		exit(-1);
+ 
+@@ -630,7 +630,7 @@
+ 
+ 	    } else if(sscanf(argv[i+1], "%d", &timeOffset) != 1) {
+ 
+-		fprintf(stderr,"Dont understand the time offset value have entered (%s).\n", argv[i+1]);
++		fprintf(stderr,"Don't understand the time offset value have entered (%s).\n", argv[i+1]);
+ 		print_usage();
+ 		exit(-1);
+ 
+@@ -666,7 +666,7 @@
+ 		}
+         	else if(sscanf(argv[i+1], "%ld", &UpdateDelay) != 1) {
+ 
+-		fprintf(stderr,"Dont understand the delay time you have entered (%s).\n", argv[i+1]);
++		fprintf(stderr,"Don't understand the delay time you have entered (%s).\n", argv[i+1]);
+ 		print_usage();
+ 		exit(-1);
+ 
