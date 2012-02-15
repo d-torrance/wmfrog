@@ -16,8 +16,11 @@ wmfrog (0.2.0-2) unstable; urgency=low
       http://wiki.debian.org/ReleaseGoals/SecurityHardeningBuildFlags
   * debian/source/format
     - New. Update to format "3.0 (quilt)".
+  * debian/wmfrog.1.pod
+    - Move from manual page section 1x to 1.
 
- -- Jari Aalto <jari.aalto@cante.net>  Wed, 15 Feb 2012 06:14:11 -0500
+
+ -- Jari Aalto <jari.aalto@cante.net>  Wed, 15 Feb 2012 06:18:30 -0500
 
 wmfrog (0.2.0-1) unstable; urgency=low
 
