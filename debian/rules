@@ -3,6 +3,11 @@
 PACKAGE = wmfrog
 MAKEOPT = -C Src
 
+include /usr/share/dpkg/buildflags.mk
+CFLAGS	+= -Wall -pedantic
+LDFLAGS += -Wl,--as-needed
+export CFLAGS LDFLAGS
+
 include debian/debian-vars.mk
 
 man:
@@ -10,7 +15,7 @@ man:
 	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
 
 override_dh_auto_build: man
-	$(MAKE) $(MAKEOPT)
+	$(MAKE) $(MAKEOPT) CFLAGS="$(CFLAGS) $(LDFLAGS)"
 
 override_dh_auto_clean:
 	[ ! Src/Makefile ] || $(MAKE) $(MAKEOPT) clean
