@@ -1,8 +1,5 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## /tmp/wmfrog.c-no-output.patch.dpatch by  <jari.aalto@cante.net>
-##
-## All lines beginning with `## DP:' are a description of the patch.
-## DP: Src/wmFrog.c: (main): No output
+From: Jari Aalto <jari.aalto@cante.net>
+Subject: Src/wmFrog.c: (main): No output
 
 @DPATCH@
 

@@ -1,10 +1,5 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## /tmp/weather.pl.patch.dpatch by  <jari.aalto@cante.net>
-##
-## All lines beginning with `## DP:' are a description of the patch.
-## DP: Fix Perl warnings, array subscript, test directory
-
-@DPATCH@
+From: Jari Aalto <jari.aalto@cante.net>
+Subject: Fix Perl warnings, array subscript, test directory
 
 diff --git a/Src/weather.pl b/Src/weather.pl
 index 27a4f88..247e02c 100755
