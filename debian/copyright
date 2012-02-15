@@ -1,44 +1,59 @@
-This package was debianized by Jari Aalto <jari.aalto@cante.net> on
-2008-11-02 15:16:55+02 Sun.
+Format: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?revision=174
+X-Format: http://dep.debian.net/deps/dep5
+Upstream-Name: wmfrog
+Upstream-Contact: Thibaut Colar <tcolar@colar.net>
+Source: http://freshmeat.net/projects/wmfrog
+X-Upstream-Bugs: <tcolar-wm@colar.net>
+X-Source:
+ http://wiki.colar.net/wmfrog_dockapp
+ https://sourceforge.net/projects/wmfrog
+ http://dockapps.org/file.php/id/92
 
-It was downloaded from:
-
-    http://www.colar.net/wmapps
-
-    See also:
-    http://freshmeat.net/projects/wmfrog
-    https://sourceforge.net/projects/wmfrog
-    http://dockapps.org/file.php/id/92
-
-Upstream Author:
-
-    Thibaut Colar <tcolar@users.sourceforge.net>, <tcolar@colar.net>
-
+Files: *
 Copyright:
+ 2002-2007 Thibaut Colar <tcolar@users.sourceforge.net>, <tcolar@colar.net>
+License: GPL-2+
 
-    Copyright (C) 2002-2007 Thibaut Colar
-    Copyright (C) Martijn Pieterse - Src/xutils.c
+Files: Src/xutils.c
+Copyright:
+ 2002-2007 Martijn Pieterse
+License: GPL-2+
 
-License:
+Files: debian/*
+Copyright: 
+ 2008-2012 Jari Aalto <jari.aalto@cante.net>
+License: GPL-2+
 
-    This package is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in "/usr/share/common-licenses/GPL-2".
 
-    This package is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this package; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
-
-The Debian packaging is licensed under the GPL v2 (or at your option,
-any later version), see below, and is:
-
-    Copyright (C) 2008 Jari Aalto <jari.aalto@cante.net>
-
-On Debian systems, the complete text of the GNU General
-Public License can be found in `/usr/share/common-licenses/GPL'.
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in "/usr/share/common-licenses/GPL-3".
