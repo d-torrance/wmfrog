@@ -5,6 +5,7 @@ wmfrog (0.2.0-2) unstable; urgency=low
   * debian/control
     - (Build-Depends): update to debhelper 9, dpkg-dev 1.16.1. Remove
       dpatch.
+    - (Description): Fix typo (Closes: #612927).
     - (standards-Version): 3.9.2
   * debian/copyright
     - Update to DEP5.
@@ -21,7 +22,7 @@ wmfrog (0.2.0-2) unstable; urgency=low
   * debian/wmfrog.1.pod
     - Move from manual page section 1x to 1.
 
- -- Jari Aalto <jari.aalto@cante.net>  Wed, 15 Feb 2012 06:26:38 -0500
+ -- Jari Aalto <jari.aalto@cante.net>  Wed, 15 Feb 2012 06:41:06 -0500
 
 wmfrog (0.2.0-1) unstable; urgency=low
 
