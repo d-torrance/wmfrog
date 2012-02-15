@@ -1,95 +1,23 @@
 #!/usr/bin/make -f
-# -*- makefile -*-
-
-# Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
-
-MAKEDIR = Src
-MAKEOPT = -C $(MAKEDIR)
 
 PACKAGE = wmfrog
-MANSECT = 1x
+MAKEOPT = -C Src
 
-include /usr/share/dpatch/dpatch.make
 include debian/debian-vars.mk
 
 man:
 	# convert *.pod to manual page
-	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) \
-	MANSECT=$(MANSECT) makeman
+	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
 
-configure: configure-stamp
+override_dh_auto_build: man
+	$(MAKE) $(MAKEOPT)
 
-configure-stamp:
-	dh_testdir
-	# Commands to configure the package.
-	touch configure-stamp
-
-build: build-stamp
-
-build-stamp: configure-stamp patch man
-	dh_testdir
-
-	# Commands to compile the package.
-	$(MAKE) $(MAKE_FLAGS) $(MAKEOPT)
-
-	touch build-stamp
-
-clean: unpatch
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp configure-stamp
-
-	# Commands to clean up after the build process.
+override_dh_auto_clean:
 	[ ! Src/Makefile ] || $(MAKE) $(MAKEOPT) clean
 
-	rm -f debian/*.$(MANSECT)
-
-	dh_clean
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	dh_installdirs
-
-	# Add here commands to install the package into debian/wmfrog.
+override_dh_auto_install:
 	$(MAKE) $(MAKEOPT) install DESTDIR=$(CURDIR)/debian/wmfrog
 
-# Build architecture-independent files here.
-binary-indep: build install
-	# We have nothing to do.
+.PHONY = man
 
-# Build architecture-dependent files here.
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs CHANGES
-	dh_installdocs
-	dh_installexamples
-#       dh_install
-#       dh_installmenu
-#       dh_installdebconf
-#       dh_installlogrotate
-#       dh_installemacsen
-#       dh_installpam
-#       dh_installmime
-#       dh_installinit
-#       dh_installcron
-#       dh_installinfo
-	dh_installman debian/*.$(MANSECT)
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-#       dh_perl
-#       dh_python
-#       dh_makeshlibs
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure man
+# End of file
