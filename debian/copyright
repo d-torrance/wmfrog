@@ -3,7 +3,11 @@ X-Format: http://dep.debian.net/deps/dep5
 Upstream-Name: wmfrog
 Upstream-Contact: Thibaut Colar <tcolar@colar.net>
 Source: http://freshmeat.net/projects/wmfrog
-X-Upstream-Bugs: <tcolar-wm@colar.net>
+X-Upstream-Bugs:
+ <tcolar-wm@colar.net>
+ https://bitbucket.org/tcolar/wmfrog/issues
+X-Vcs:
+ hg clone https://bitbucket.org/tcolar/wmfrog
 X-Source:
  http://wiki.colar.net/wmfrog_dockapp
  https://sourceforge.net/projects/wmfrog
