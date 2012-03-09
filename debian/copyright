@@ -1,4 +1,4 @@
-Format: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?revision=174
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
 X-Format: http://dep.debian.net/deps/dep5
 Upstream-Name: wmfrog
 Upstream-Contact: Thibaut Colar <tcolar@colar.net>
@@ -15,17 +15,17 @@ X-Source:
 
 Files: *
 Copyright:
- 2002-2007 Thibaut Colar <tcolar@users.sourceforge.net>, <tcolar@colar.net>
+  2002-2007 Thibaut Colar <tcolar@users.sourceforge.net>, <tcolar@colar.net>
 License: GPL-2+
 
 Files: Src/xutils.c
 Copyright:
- 2002-2007 Martijn Pieterse
+  2002-2007 Martijn Pieterse
 License: GPL-2+
 
 Files: debian/*
 Copyright:
- 2008-2012 Jari Aalto <jari.aalto@cante.net>
+  2008-2012 Jari Aalto <jari.aalto@cante.net>
 License: GPL-2+
 
 License: GPL-2+
