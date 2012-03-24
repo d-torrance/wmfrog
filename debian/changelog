@@ -1,3 +1,13 @@
+wmfrog (0.2.0-3) unstable; urgency=low
+
+  * debian/control
+    - (Description): Rewrite. Patch thanks to Justin B Rye <jbr@edlug.org.uk>
+      in followup to bug #612927.
+  * debian/rules
+    - Use DEB_*_MAINT_* variables.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Sat, 24 Mar 2012 02:30:33 -0400
+
 wmfrog (0.2.0-2) unstable; urgency=low
 
   * debian/compat

@@ -11,11 +11,15 @@ Homepage: http://freshmeat.net/projects/wmfrog
 Package: wmfrog
 Architecture: any
 Depends: wget, libxext6, ${shlibs:Depends}, ${misc:Depends}
-Description: dockapp for showing weather in graphical way
- A dockapp for wheather reports. Includes clouds (clear, few,
- scattered, broken, overcast ...); Precipitations (drizzle, rain,
- snow, ice christals: light/moderate or heavy); Special weather
- (Blowing wind / Freezing / Thunderstorm, funnel cloud...); Humidity
- percentage; Wind speed (average & gust); Wind Direction; Temperature
- (Celcius or Fareinheit); Station name can be configured and weather
- report time is displayed.
+Description: dockapp for graphically indicating the weather
+ This package provides a dockapp for weather reports. It shows:
+ .
+  - Cloud cover: clear, few, scattered, broken, overcast etc.
+  - Precipitation: light, moderate, or heavy rain, hail, or snow.
+  - Humidity as a percentage.
+  - Wind speed, average and gusting, and direction.
+  - Temperature: Celsius or Fahrenheit.
+  - Special conditions such as gales, thunderstorms, or tornadoes.
+ .
+ The name of the reporting station can be configured and the time of the
+ last update is displayed.

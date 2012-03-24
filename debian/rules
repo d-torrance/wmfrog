@@ -4,8 +4,8 @@ PACKAGE = wmfrog
 MAKEOPT = -C Src
 
 export DEB_BUILD_MAINT_OPTIONS	= hardening=+all
-CFLAGS	+= -Wall -pedantic $(CPPFLAGS)
-LDFLAGS += -Wl,--as-needed
+export DEB_CFLAGS_MAINT_APPEND	= -Wall -pedantic
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 man:
 	# convert *.pod to manual page
