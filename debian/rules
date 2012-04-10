@@ -12,7 +12,8 @@ man:
 	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
 
 override_dh_auto_build: man
-	$(MAKE) $(MAKEOPT) CFLAGS="$(CFLAGS) $(LDFLAGS)"
+	# CFLAGS is the only variable that we can utilize to pass flags.
+	$(MAKE) $(MAKEOPT) CFLAGS="$(CFLAGS) $(CPPFLAGS) $(LDFLAGS)"
 
 override_dh_auto_clean:
 	[ ! Src/Makefile ] || $(MAKE) $(MAKEOPT) clean
