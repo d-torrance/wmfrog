@@ -1,6 +1,7 @@
 wmfrog (0.2.0-5) unstable; urgency=low
 
   * NOT RELEASED
+    - Orphan package: #699766.
   * debian/control
     - (Standards-Version): Update to 3.9.4.
   * debian/copyright
@@ -10,7 +11,7 @@ wmfrog (0.2.0-5) unstable; urgency=low
   * debian/watch
     - Update URL to bitbucket.
 
- -- Jari Aalto <jari.aalto@cante.net>  Mon, 04 Feb 2013 22:08:01 +0200
+ -- Jari Aalto <jari.aalto@cante.net>  Mon, 04 Feb 2013 22:11:46 +0200
 
 wmfrog (0.2.0-4) unstable; urgency=low
 
