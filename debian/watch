@@ -1,2 +1,3 @@
 version=3
-http://sf.net/wmfrog/wmfrog-(.+)\.tgz
+# http://sf.net/wmfrog/wmfrog-(.+)\.tgz
+http://bitbucket.org/tcolar/wmfrog/downloads .*wmfrog-(.+)\.tgz
