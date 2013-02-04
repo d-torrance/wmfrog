@@ -1,3 +1,17 @@
+wmfrog (0.2.0-5) unstable; urgency=low
+
+  * NOT RELEASED
+  * debian/control
+    - (Standards-Version): Update to 3.9.4.
+  * debian/copyright
+    - Update to Copyright Format 1.0.
+  * debian/source/format
+    - New.
+  * debian/watch
+    - Update URL to bitbucket.
+
+ -- Jari Aalto <jari.aalto@cante.net>  Mon, 04 Feb 2013 22:08:01 +0200
+
 wmfrog (0.2.0-4) unstable; urgency=low
 
   * debian/rules
