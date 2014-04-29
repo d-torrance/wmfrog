@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+PACKAGE = wmfrog
+MAKEOPT = -C Src
+
+export DEB_BUILD_MAINT_OPTIONS	= hardening=+all
+export DEB_CFLAGS_MAINT_APPEND	= -Wall -pedantic
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+man:
+	# convert *.pod to manual page
+	$(MAKE) -C debian -f pod2man.mk PACKAGE=$(PACKAGE) makeman
+
+override_dh_auto_build: man
+	# CFLAGS is the only variable that we can utilize to pass flags.
+	$(MAKE) $(MAKEOPT) CFLAGS="$(CFLAGS) $(CPPFLAGS) $(LDFLAGS)"
+
+override_dh_auto_clean:
+	[ ! Src/Makefile ] || $(MAKE) $(MAKEOPT) clean
+
+override_dh_auto_install:
+	$(MAKE) $(MAKEOPT) install DESTDIR=$(CURDIR)/debian/wmfrog
+
+%:
+	dh $@
+
+.PHONY = man
+
+# End of file
