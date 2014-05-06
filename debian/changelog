@@ -25,7 +25,7 @@ wmfrog (0.3.1-1) unstable; urgency=low
 wmfrog (0.2.0-4) unstable; urgency=low
 
   * debian/rules
-    - Enable CPPFLAGS hardened build flags.  Patch thanks to Simon Ruderich
+    - Enable CPPFLAGS hardened build flags. Patch thanks to Simon Ruderich
       <simon@ruderich.org>. (Closes: #668303)
 
  -- Jari Aalto <jari.aalto@cante.net>  Tue, 10 Apr 2012 23:23:34 +0300
