@@ -1,30 +1,32 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
+X-Format: http://dep.debian.net/deps/dep5
 Upstream-Name: wmfrog
-Upstream-Contact: Thibaut Colar <tcolar@users.sourceforge.net>, <tcolar@colar.net>
+Upstream-Contact: Thibaut Colar <tcolar@colar.net>
 Source: http://freshmeat.net/projects/wmfrog
-X-Spource: https://bitbucket.org/tcolar/wmfrog/overview
-X-Wiki: http://wiki.colar.net/wmfrog_dockapp
-X-Upstream-Vcs-Browser: https://bitbucket.org/tcolar/wmfrog/src
-X-Upstream-Vcs-Hg: https://bitbucket.org/tcolar/wmfrog
-X-Upstream-Bugs: https://bitbucket.org/tcolar/wmfrog/issues
-X-Comment:
- Old code, pre 2011 was at
+X-Upstream-Bugs:
+ <tcolar-wm@colar.net>
+ https://bitbucket.org/tcolar/wmfrog/issues
+X-Vcs:
+ hg clone https://bitbucket.org/tcolar/wmfrog
+X-Source:
+ http://wiki.colar.net/wmfrog_dockapp
  https://sourceforge.net/projects/wmfrog
  http://dockapps.org/file.php/id/92
 
 Files: *
 Copyright:
- 2002-2010 Thibaut Colar <tcolar@users.sourceforge.net>, <tcolar@colar.net>
+  2002-2007 Thibaut Colar <tcolar@users.sourceforge.net>, <tcolar@colar.net>
 License: GPL-2+
 
 Files: Src/xutils.c
 Copyright:
- Martijn Pieterse
+  2002-2007 Martijn Pieterse
 License: GPL-2+
 
 Files: debian/*
 Copyright:
- 2008-2011 Jari Aalto <jari.aalto@cante.net>
+  2008-2012 Jari Aalto <jari.aalto@cante.net>
+  2013 Doug Torrance
 License: GPL-2+
 
 License: GPL-2+

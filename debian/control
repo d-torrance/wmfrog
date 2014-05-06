@@ -1,12 +1,12 @@
 Source: wmfrog
 Section: x11
 Priority: optional
-Maintainer: Jari Aalto <jari.aalto@cante.net>
+Maintainer: Doug Torrance <dtorrance@monmouthcollege.edu>
 Build-Depends: debhelper (>= 9), libxpm-dev, x11proto-xext-dev, libxext-dev
-Standards-Version: 3.9.4
-Vcs-Browser: http://git.debian.org/?p=collab-maint/wmfrog.git
-Vcs-Git: git://git.debian.org/git/collab-maint/wmfrog.git
-Homepage: http://freshmeat.net/projects/wmfrog
+Standards-Version: 3.9.5
+Vcs-Browser: https://bitbucket.org/tcolar/wmfrog/
+Vcs-Hg: https://bitbucket.org/tcolar/wmfrog/
+Homepage: http://wiki.colar.net/wmfrog_dockapp
 
 Package: wmfrog
 Architecture: any

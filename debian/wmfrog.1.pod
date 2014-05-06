@@ -62,7 +62,7 @@ station id.
 
 =head1 DESCRIPTION
 
-A dockapp for wheather reports. Includes clouds (clear, few,
+A dockapp for weather reports. Includes clouds (clear, few,
 scattered, broken, overcast ...); Precipitations (drizzle, rain, snow,
 ice christals: light/moderate or heavy); Special weather (Blowing wind
 / Freezing / Thunderstorm, funnel cloud...); Humidity perentage; Wind
@@ -76,7 +76,7 @@ http://www.nws.noaa.gov/oso/oso1/oso12/faq.htm
 
 To find your city Metar code go to NOAA's Meteorological Station
 Information Lookup page I<Meteorological Products Processed At The
-NWSTG> at at http://www.nws.noaa.gov/tg/siteloc.shtml
+NWSTG> at at http://www.nws.noaa.gov/tg/siteloc.php
 
 =head1 ENVIRONMENT
 

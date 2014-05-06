@@ -1,23 +1,32 @@
-wmfrog (0.2.0-5) unstable; urgency=low
+wmfrog (0.3.1-1) unstable; urgency=low
 
-  * NOT RELEASED
-    - Orphan package: #699766.
+  * New maintainer. (Closes: #699766)
+  * New upstream version. (Closes: #642111)
+    + Fix buffer overflow. (Closes: #697977, LP: #556203)
+    + Improve polling mechanism.  (Closes: #512187)
   * debian/control
-    - (Standards-Version): Update to 3.9.4.
-  * debian/copyright
-    - Update to Copyright Format 1.0.
-  * debian/source/format
-    - New.
+    + Bump Standards-Version to 3.9.5, no changes required.
+    + Update Homepage and Vcs-* fields.
+  * debian/patches
+    + Update previous debian patches for new upstream version.
+    + New patch (weather.pl-new-line-skip.patch) fixes bug caused by a
+      small change in weather.noaa.gov's website.
+    + New patch (renamed-wmfrog.c.patch) renames wmFrog.c to wmfrog.c to avoid
+      "source-is-missing" Lintian error.
+    + Update location of the NOAA's Meteorological Station Information Lookup
+      page in documentation.
   * debian/watch
-    - Update URL to bitbucket.
+    + Update download location.
+  * debian/wmfrog.1
+    + Delete file, as it is created during make.
 
- -- Jari Aalto <jari.aalto@cante.net>  Mon, 04 Feb 2013 22:11:46 +0200
+ -- Doug Torrance <dtorrance@monmouthcollege.edu>  Tue, 29 Apr 2014 00:04:57 -0500
 
 wmfrog (0.2.0-4) unstable; urgency=low
 
   * debian/rules
-    - Enable CPPFLAGS hardened build flags (Closes: #668303). Patch thanks
-      to Simon Ruderich <simon@ruderich.org>
+    - Enable CPPFLAGS hardened build flags.  Patch thanks to Simon Ruderich
+      <simon@ruderich.org>. (Closes: #668303)
 
  -- Jari Aalto <jari.aalto@cante.net>  Tue, 10 Apr 2012 23:23:34 +0300
 
@@ -38,7 +47,7 @@ wmfrog (0.2.0-2) unstable; urgency=low
   * debian/control
     - (Build-Depends): Update to debhelper 9, remove dpatch.
     - (Description): Fix typo (Closes: #612927).
-    - (standards-Version): 3.9.3.1.
+    - (Standards-Version): 3.9.3.1.
   * debian/copyright
     - Update to format 1.0.
   * debian/manpages
@@ -58,6 +67,6 @@ wmfrog (0.2.0-2) unstable; urgency=low
 
 wmfrog (0.2.0-1) unstable; urgency=low
 
-  * Initial release (RFP/ITP; Closes: #504786).
+  * Initial release. (Closes: #504786)
 
  -- Jari Aalto <jari.aalto@cante.net>  Fri, 07 Nov 2008 09:57:30 +0000
