@@ -1,21 +1,8 @@
 #!/usr/bin/make -f
 
-MAKEOPT = -C Src
-
-export DEB_BUILD_MAINT_OPTIONS	= hardening=+all
-export DEB_CFLAGS_MAINT_APPEND	= -Wall -pedantic
-export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+%:
+	dh $@ --sourcedirectory=Src
 
 override_dh_auto_build:
-	# CFLAGS is the only variable that we can utilize to pass flags.
-	$(MAKE) $(MAKEOPT) CFLAGS="$(CFLAGS) $(CPPFLAGS) $(LDFLAGS)"
-
-override_dh_auto_clean:
-	[ ! Src/Makefile ] || $(MAKE) $(MAKEOPT) clean
-
-override_dh_auto_install:
-	$(MAKE) $(MAKEOPT) install DESTDIR=$(CURDIR)/debian/wmfrog
-
-%:
-	dh $@
+	dh_auto_build --sourcedirectory=Src -- CFLAGS="$(CFLAGS) $(CPPFLAGS) $(LDFLAGS)"
 
