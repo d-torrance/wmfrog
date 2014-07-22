@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9), libxpm-dev, x11proto-xext-dev, libxext-dev
 Standards-Version: 3.9.5
 Homepage: http://wiki.colar.net/wmfrog_dockapp
 Vcs-Browser: https://github.com/d-torrance/wmfrog
-Vcs-Hg: https://github.com/d-torrance/wmfrog.git
+Vcs-Git: https://github.com/d-torrance/wmfrog.git
 
 Package: wmfrog
 Architecture: any
