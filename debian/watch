@@ -1,2 +1,3 @@
 version=3
+opts=dversionmangle=s/\.ds// \
 https://bitbucket.org/tcolar/wmfrog/downloads/wmfrog-(.+)\.tgz
