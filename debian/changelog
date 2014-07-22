@@ -1,3 +1,16 @@
+wmfrog (0.3.1-2) unstable; urgency=low
+
+  * For simplicity, manpage is included rather than built during make.
+    + Delete files debian/pod2man.mk, debian/wmfrog.1.pod.
+    + Add file wmfrog.1, including several spelling fixes.
+    + Remove man target from debian/rules.
+  * debian/control
+    + Update Vcs-* fields.
+  * debian/rules
+    + Simplify by using --sourcedirectory=Src.
+
+ -- Doug Torrance <dtorrance@monmouthcollege.edu>  Mon, 21 Jul 2014 23:52:58 -0500
+
 wmfrog (0.3.1-1) unstable; urgency=low
 
   * New maintainer. (Closes: #699766)
