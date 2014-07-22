@@ -4,5 +4,5 @@
 	dh $@ --sourcedirectory=Src
 
 override_dh_auto_build:
-	dh_auto_build --sourcedirectory=Src -- CFLAGS="$(CFLAGS) $(CPPFLAGS) $(LDFLAGS)"
-
+	dh_auto_build --sourcedirectory=Src \
+		-- CFLAGS="$(CFLAGS) $(CPPFLAGS) $(LDFLAGS)"
