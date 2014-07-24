@@ -3,8 +3,10 @@ wmfrog (0.3.1+ds-1) unstable; urgency=low
   * Repack source tarball to remove Src/wmfrog binary file.
     + Add debian/README.source to explain this.
     + Add dversionmangle option to debian/watch.
+  * debian/patches/renamed-wmfrog.c.patch
+    + Update urls printed by --help option.
 
- -- Doug Torrance <dtorrance@monmouthcollege.edu>  Tue, 22 Jul 2014 17:03:14 -0500
+ -- Doug Torrance <dtorrance@monmouthcollege.edu>  Tue, 22 Jul 2014 17:51:23 -0500
 
 wmfrog (0.3.1-2) unstable; urgency=low
 
