@@ -6,15 +6,16 @@ Description: New line skip in weather.pl.
  .
  This patch fixes this issue.
 Author: Doug Torrance <dtorrance@monmouthcollege.edu>
+Last-Update: 2014-08-24
 
---- wmfrog-0.3.1.orig/Src/weather.pl
-+++ wmfrog-0.3.1/Src/weather.pl
-@@ -40,7 +40,7 @@ if($mode eq "http")
- 		$line=<DATA>;
-     }
-     $i=0;
--    while($i!=12 && !eof(DATA))
-+    while($i!=21 && !eof(DATA))
+--- a/Src/weather.pl
++++ b/Src/weather.pl
+@@ -79,7 +79,7 @@
+ 
+     $i = 0;
+ 
+-    while ( $i != 12  and  not eof DATA )
++    while ( $i != 21  and  not eof DATA )
      {
- 		$line=<DATA>;
- 		$i++;
+ 	$line = <DATA>;
+ 	$i++;

@@ -1,0 +1,35 @@
+Description: Fix spelling of "Don't"
+  Adapted from 30-wmfrog.c-no-output.patch for version 0.3.1.
+Author: Jari Aalto <jari.aalto@cante.net>
+Author: Doug Torrance <dtorrance@monmouthcollege.edu>
+Last-Update: 2014-08-23
+
+--- a/Src/wmFrog.c
++++ b/Src/wmFrog.c
+@@ -321,7 +321,7 @@
+                 print_usage();
+                 exit(-1);
+             } else if (sscanf(argv[i + 1], "%d", &maxWind) != 1) {
+-                fprintf(stderr, "Dont understand the max wind value have entered (%s).\n", argv[i + 1]);
++                fprintf(stderr, "Don't understand the max wind value have entered (%s).\n", argv[i + 1]);
+                 print_usage();
+                 exit(-1);
+             }
+@@ -331,7 +331,7 @@
+                 print_usage();
+                 exit(-1);
+             } else if (sscanf(argv[i + 1], "%d", &timeOffset) != 1) {
+-                fprintf(stderr, "Dont understand the time offset value have entered (%s).\n", argv[i + 1]);
++                fprintf(stderr, "Don't understand the time offset value have entered (%s).\n", argv[i + 1]);
+                 print_usage();
+                 exit(-1);
+             }
+@@ -362,7 +362,7 @@
+                 exit(-1);
+             } else if (sscanf(argv[i + 1], "%ld", &UpdateDelay) != 1) {
+ 
+-                fprintf(stderr, "Dont understand the delay time you have entered (%s).\n", argv[i + 1]);
++                fprintf(stderr, "Don't understand the delay time you have entered (%s).\n", argv[i + 1]);
+                 print_usage();
+                 exit(-1);
+             }

@@ -1,4 +1,6 @@
 20-weather.pl.patch
-weather.pl-new-line-skip.patch
+30-wmfrog.c-no-output.patch
 renamed-wmfrog.c.patch
 new-station-lookup-url.patch
+weather.pl-new-line-skip.patch
+fix_weather.pl_typos.patch

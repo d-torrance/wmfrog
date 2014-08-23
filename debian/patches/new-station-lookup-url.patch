@@ -1,12 +1,16 @@
 Description: New Metereological Station Information Lookup page
- This patch updates the url of the NOAA's Metereological Station Information
- Lookup page in the INSTALL documentation file.
+ This patch updates the url of the NOAA's Metereological Station
+ Information Lookup page in the INSTALL documentation file and and the
+ wmfrog --help text.
+ .
+ It also updates the url of the METAR/TAF information page mentioned by
+ the wmfrog --help text.
 Author: Doug Torrance <dtorrance@monmouthcollege.edu>
-Last-Update: <2014-04-29>
+Last-Update: 2014-08-24
 
---- wmfrog-0.3.1.orig/INSTALL
-+++ wmfrog-0.3.1/INSTALL
-@@ -37,7 +37,7 @@ You might need to set the location of pe
+--- a/INSTALL
++++ b/INSTALL
+@@ -37,7 +37,7 @@
  Use
  --------------------------------------------------------------------------------
  Find your METAR station name here: 
@@ -15,3 +19,17 @@ Last-Update: <2014-04-29>
  For example Reno, NV is KRNO
  Also you will want to set your Time offset from UTC(GMT), for example Pacific time is GMT-8, so offset is -8
  
+--- a/Src/wmfrog.c
++++ b/Src/wmfrog.c
+@@ -407,9 +407,9 @@
+     printf("\t-l\t\t\t\tSet a label to replace the station ID \n\n");
+ 
+     printf("\n\nTo find out more about the METAR/TAF system, look at:\n");
+-    printf("	 http://www.nws.noaa.gov/oso/oso1/oso12/metar.htm \n\n");
++    printf("	 http://nws.noaa.gov/ops2/Surface/metar_taf.htm \n\n");
+     printf("To find your city Metar code go to  NOAA's ""Meteorological Station Information\nLookup"" page at:\n\n");
+-    printf("	 http://www.nws.noaa.gov/oso/siteloc.shtml\n\n");
++    printf("	 http://www.nws.noaa.gov/tg/siteloc.php\n\n");
+     printf("\n Thibaut Colar http://www.colar.net/wmapps/\n\n");
+ 
+ }
