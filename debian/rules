@@ -6,3 +6,24 @@
 override_dh_auto_build:
 	dh_auto_build --sourcedirectory=Src \
 		-- CFLAGS="$(CFLAGS) $(CPPFLAGS) $(LDFLAGS)"
+
+get-orig-source:
+	@git checkout upstream
+	@git pull https://github.com/tcolar/wmfrog.git
+	@grep -Po '(?<=\#define VERSION ").*(?=\")' wmfrog/Src/wmFrog.c \
+		> version
+	@git show HEAD^:wmfrog/Src/wmFrog.c | \
+		grep -Po '(?<=\#define VERSION ").*(?=\")' > oldversion
+	@if test `cat oldversion` = `cat version` ; then \
+		echo "`cat version`+`date -d @\`git log -1 --pretty=format:%ct\` +%Y%m%d`" > version; \
+	fi
+	@echo "Enter "`cat version`" at the prompt below:"
+	@cd wmfrog; \
+	./builtDist.sh
+	@mv -v wmfrog/dist/wmfrog-`cat version`.tgz ../wmfrog_`cat version`.orig.tar.gz
+	@rm wmfrog/Src/wmfrog
+	@rm version
+	@rm oldversion
+	@git checkout wmfrog/dist/weather.pl
+	@git checkout wmfrog/dist/wmfrog
+	@git checkout master
