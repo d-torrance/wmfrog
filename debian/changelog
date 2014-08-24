@@ -1,3 +1,14 @@
+wmfrog (0.3.1+20130905-1) UNRELEASED; urgency=medium
+
+  * New upstream version (git snapshot).
+  * debian/rules
+    - Add get-orig-source target.
+  * debian/patches
+    - Separate patches for clarity.
+    - Rewrite weather.pl patches for new upstream version.
+
+ -- Doug Torrance <dtorrance@monmouthcollege.edu>  Sun, 24 Aug 2014 14:58:08 -0500
+
 wmfrog (0.3.1+ds-2) unstable; urgency=low
 
   * debian/watch
