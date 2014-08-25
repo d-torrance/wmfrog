@@ -1,4 +1,4 @@
-wmfrog (0.3.1+20130905-1) UNRELEASED; urgency=medium
+wmfrog (0.3.1+git20130905-1) UNRELEASED; urgency=medium
 
   * New upstream version (git snapshot).
   * debian/rules

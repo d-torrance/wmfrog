@@ -15,7 +15,7 @@ get-orig-source:
 	@git show HEAD^:wmfrog/Src/wmFrog.c | \
 		grep -Po '(?<=\#define VERSION ").*(?=\")' > oldversion
 	@if test `cat oldversion` = `cat version` ; then \
-		echo "`cat version`+`date -d @\`git log -1 --pretty=format:%ct\` +%Y%m%d`" > version; \
+		echo "`cat version`+git`date -d @\`git log -1 --pretty=format:%ct\` +%Y%m%d`" > version; \
 	fi
 	@echo "Enter "`cat version`" at the prompt below:"
 	@cd wmfrog; \
