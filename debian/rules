@@ -20,7 +20,11 @@ get-orig-source:
 	@echo "Enter "`cat version`" at the prompt below:"
 	@cd wmfrog; \
 	./builtDist.sh
-	@mv -v wmfrog/dist/wmfrog-`cat version`.tgz ../wmfrog_`cat version`.orig.tar.gz
+	@echo "Repacking to remove executable binary..."
+	@gunzip wmfrog/dist/wmfrog-`cat version`.tgz
+	@tar --delete -f wmfrog/dist/wmfrog-`cat version`.tar Src/wmfrog
+	@gzip wmfrog/dist/wmfrog-`cat version`.tar
+	@mv -v wmfrog/dist/wmfrog-`cat version`.tar.gz ../wmfrog_`cat version`+ds.orig.tar.gz
 	@rm wmfrog/Src/wmfrog
 	@rm version
 	@rm oldversion
