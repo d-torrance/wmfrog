@@ -1,13 +1,15 @@
-wmfrog (0.3.1+git20130905+ds-1) UNRELEASED; urgency=medium
+wmfrog (0.3.1+git20140909-1) unstable; urgency=medium
 
   * New upstream version (git snapshot).
+    - Binary file no longer included in source, so repack no longer needed.
+      Remove debian/README.source and dversionmangle option from debian/watch
+      because of this.
   * debian/rules
     - Add get-orig-source target.
   * debian/patches
-    - Separate patches for clarity.
-    - Rewrite weather.pl patches for new upstream version.
+    - Remove directory; patches applied upstream.
 
- -- Doug Torrance <dtorrance@monmouthcollege.edu>  Sun, 24 Aug 2014 14:58:08 -0500
+ -- Doug Torrance <dtorrance@monmouthcollege.edu>  Tue, 09 Sep 2014 23:29:45 -0500
 
 wmfrog (0.3.1+ds-2) unstable; urgency=low
 
