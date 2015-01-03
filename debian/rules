@@ -5,7 +5,7 @@
 
 override_dh_auto_build:
 	dh_auto_build --sourcedirectory=Src \
-		-- CFLAGS="$(CFLAGS) $(CPPFLAGS) $(LDFLAGS)"
+		-- CFLAGS="$(shell dpkg-buildflags --get CFLAGS)"
 
 get-orig-source:
 	@git checkout upstream
