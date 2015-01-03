@@ -10,7 +10,7 @@ Vcs-Git: https://github.com/d-torrance/wmfrog.git
 
 Package: wmfrog
 Architecture: any
-Depends: wget, libxext6, ${shlibs:Depends}, ${misc:Depends}
+Depends: wget, ${shlibs:Depends}, ${misc:Depends}
 Description: dockapp for graphically indicating the weather
  This package provides a dockapp for weather reports. It shows:
  .
