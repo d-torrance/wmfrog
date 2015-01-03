@@ -1,0 +1,32 @@
+Description: Install weather.pl in /usr/share/wmfrog.
+ Architecture-independent files should go in /usr/share to conform to the
+ Filesystem Hierarchy Standard.
+Author: Doug Torrance <dtorrance@monmouthcollege.edu>
+Last-Update: 2015-01-02
+
+--- a/Src/Makefile
++++ b/Src/Makefile
+@@ -23,10 +23,10 @@
+ 	$(CC) $(LDFLAGS) $(SYSTEM) -o wmfrog $^ $(INCDIR) $(LIBDIR) $(LIBS)
+ install:
+ 		mkdir -p "$(DESTDIR)$(PREFIX)/bin"
+-		mkdir -p "$(DESTDIR)$(PREFIX)/lib/wmfrog"
++		mkdir -p "$(DESTDIR)$(PREFIX)/share/wmfrog"
+ 		mkdir -p "$(DESTDIR)$(PREFIX)/share/man/man1"
+ 		cp wmfrog "$(DESTDIR)$(PREFIX)/bin"
+-		cp weather.pl "$(DESTDIR)$(PREFIX)/lib/wmfrog"
++		cp weather.pl "$(DESTDIR)$(PREFIX)/share/wmfrog"
+ 		cp wmfrog.1 "$(DESTDIR)$(PREFIX)/share/man/man1"
+ clean:
+ 	for i in $(OBJS) ; do \
+--- a/Src/wmfrog.c
++++ b/Src/wmfrog.c
+@@ -492,7 +492,7 @@
+     /*
+      *  Execute Perl script to grab the Latest METAR Report
+      */
+-    snprintf(command, 1024, "/usr/lib/wmfrog/weather.pl %s %s", StationID, folder);
++    snprintf(command, 1024, "/usr/share/wmfrog/weather.pl %s %s", StationID, folder);
+     //printf("Retrieveing data\n");
+     ign = system(command);
+     snprintf(FileName, 128, "%s/%s", folder, StationID);
