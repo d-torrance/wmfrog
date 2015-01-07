@@ -1,10 +1,26 @@
-wmfrog (0.3.1+git20150102-1) UNRELEASED; urgency=medium
+wmfrog (0.3.1+git20150102-1) unstable; urgency=medium
 
   * New upstream release (git snapshot).
+  * debian/control
+    - Bump Standards-Version to 3.9.6; no changes required.
+    - Remove x11proto-xext-dev from Build-Depends; unnecessary as
+      libxext-dev depends on it.
+    - Remove libxext6 from Depends; already accounted for in
+      ${shlibs:Depends}.
+    - Add ${perl:Depends} to Depends.
+  * debian/docs
+    - New file; adds HINTS to docs.
   * debian/(manpages|wmfrog.1)
     - Remove files; manpage added upstream.
+  * debian/patches
+    - (install_perl_script_in_usr_share.patch) Install weather.pl
+      in /usr/share/wmfrog to conform to the Filesystem Hierarchy Standard.
+  * debian/rules
+    - Update override_dh_auto_build target to remove hack that passed
+      CPPFLAGS and LDFLAGS via CFLAGS as upstream Makefile now handles
+      these build flags properly.  Use dpkg-buildflags for CFLAGS.
 
- -- Doug Torrance <dtorrance@monmouthcollege.edu>  Fri, 02 Jan 2015 18:54:42 -0600
+ -- Doug Torrance <dtorrance@monmouthcollege.edu>  Wed, 07 Jan 2015 15:05:36 -0600
 
 wmfrog (0.3.1+git20140909-1) unstable; urgency=medium
 
